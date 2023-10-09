@@ -95,7 +95,7 @@
       "trim_suffix"                       strings/builtin-trim-suffix
       "trim_space"                        strings/builtin-trim-space
       "upper"                             strings/builtin-upper
-      ;"sprintf"                          strings/builtin-sprintf
+      "sprintf"                           strings/builtin-sprintf
       ; regex
       "re_match"                          regex/builtin-re-match ; deprecated
       "regex.match"                       regex/builtin-regex-match
