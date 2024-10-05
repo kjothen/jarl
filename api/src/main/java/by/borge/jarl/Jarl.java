@@ -32,7 +32,7 @@ public class Jarl {
     }
 
     public static Builder builder(File irFile) {
-        return new Builder(Files.readString(irFile.toPath()););
+        return new Builder(Files.readString(irFile.toPath()));
     }
 
     public static Builder builder(String rawIr) {
