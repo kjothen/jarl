@@ -31,20 +31,20 @@ public class Jarl {
         return new Plan(plan);
     }
 
-    public static Builder builder(File irFile) {
-        return new Builder(Files.readString(irFile.toPath()););
+    public static Builder builder(File irFile) throws IOException {
+        return new Builder(Files.readString(irFile.toPath()));
     }
 
-    public static Builder builder(String rawIr) {
-        return new Builder(rawIr);
+    public static Builder builder(String irRaw) {
+        return new Builder(irRaw);
     }
 
     public static class Builder {
-        private final String rawIr;
+        private final String irRaw;
         private boolean strict = false;
 
         public Builder(String irRaw) {
-            this.rawIr = rawIr;
+            this.irRaw = irRaw;
         }
 
         public Builder strictBuiltinErrors(boolean strict) {
@@ -52,9 +52,9 @@ public class Jarl {
             return this;
         }
 
-        public Jarl build() throws IOException {
-            var ir = Parser.parse(rawIr)
-                    .withStrictBuiltinErrors(strict);
+        public Jarl build() {
+            var ir = Parser.parse(irRaw)
+                     .withStrictBuiltinErrors(strict);
             return new Jarl(ir);
         }
     }
