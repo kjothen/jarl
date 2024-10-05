@@ -32,15 +32,19 @@ public class Jarl {
     }
 
     public static Builder builder(File irFile) {
-        return new Builder(irFile);
+        return new Builder(Files.readString(irFile.toPath()););
+    }
+
+    public static Builder builder(String rawIr) {
+        return new Builder(rawIr);
     }
 
     public static class Builder {
-        private final File irFile;
+        private final String rawIr;
         private boolean strict = false;
 
-        public Builder(File irFile) {
-            this.irFile = irFile;
+        public Builder(String irRaw) {
+            this.rawIr = rawIr;
         }
 
         public Builder strictBuiltinErrors(boolean strict) {
@@ -49,7 +53,6 @@ public class Jarl {
         }
 
         public Jarl build() throws IOException {
-            var rawIr = Files.readString(irFile.toPath());
             var ir = Parser.parse(rawIr)
                     .withStrictBuiltinErrors(strict);
             return new Jarl(ir);

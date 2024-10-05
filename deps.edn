@@ -1,0 +1,5 @@
+{:aliases {:build {:deps {io.github.clojure/tools.build {:mvn/version "0.10.5"}}
+                   :ns-default build}}
+ :deps {local/api {:local/root "api"} local/core {:local/root "core"}}
+ :deps/prep-lib {:alias :build :ensure "target/classes" :fn compile-java}
+ :paths ["target/classes"]}
