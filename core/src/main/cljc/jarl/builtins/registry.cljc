@@ -74,7 +74,7 @@
       "object.union"                      objects/builtin-object-union
       "object.union_n"                    objects/builtin-object-union-n
       "json.patch"                        objects/builtin-json-patch
-      "json.remove"                       objects/builtin-json-remove
+      "json.remove"                       {:func objects/builtin-json-remove :type-checker objects/builtin-json-remove-type-checker}
       ; strings
       "concat"                            strings/builtin-concat
       "contains"                          strings/builtin-contains
@@ -95,7 +95,7 @@
       "trim_suffix"                       strings/builtin-trim-suffix
       "trim_space"                        strings/builtin-trim-space
       "upper"                             strings/builtin-upper
-      ;"sprintf"                          strings/builtin-sprintf
+      "sprintf"                           strings/builtin-sprintf
       ; regex
       "re_match"                          regex/builtin-re-match ; deprecated
       "regex.match"                       regex/builtin-regex-match
@@ -252,7 +252,7 @@
       "object.union"                      objects/builtin-object-union
       "object.union_n"                    objects/builtin-object-union-n
       "json.patch"                        objects/builtin-json-patch
-      "json.remove"                       objects/builtin-json-remove
+      "json.remove"                       {:func objects/builtin-json-remove :type-checker objects/builtin-json-remove-type-checker}
       ; strings
       "concat"                            strings/builtin-concat
       "contains"                          strings/builtin-contains

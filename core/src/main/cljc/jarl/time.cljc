@@ -86,7 +86,9 @@
 #?(:clj
    (def ^:private jvm-major-version
      (let [jvm-version (System/getProperty "java.vm.version")]
-       (parse-long (subs jvm-version 0 (str/index-of jvm-version "."))))))
+       (parse-long (if-some [minor-version-pos (str/index-of jvm-version ".")]
+                     (subs jvm-version 0 minor-version-pos)
+                     jvm-version)))))
 
 #?(:clj
    (defn- fixup-am-pm
